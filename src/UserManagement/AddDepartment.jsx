@@ -1,9 +1,12 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const AddDepartment = ({ open, onClose, onAdd }) => {
-    const [departmentName, setDepartmentName] = useState('')
-
+const AddDepartment = ({ open, onClose, onAdd,edit }) => {
+    const [departmentName, setDepartmentName] = useState('');
+    useEffect(() => {
+        const name = (edit && edit !== '' && edit !== null) ? edit?.department_name : '';
+        setDepartmentName(name);
+    }, [edit]);
     function handelChange(event) {
         setDepartmentName(event?.target?.value);
     }
@@ -18,7 +21,7 @@ const AddDepartment = ({ open, onClose, onAdd }) => {
 
     return (
         <Dialog open={open} onClose={onClose} >
-            <DialogTitle>Add Department</DialogTitle>
+            <DialogTitle>{edit ? 'Edit' : 'Add'} Department</DialogTitle>
             <DialogContent>
                 <TextField
                     autoFocus
@@ -33,7 +36,7 @@ const AddDepartment = ({ open, onClose, onAdd }) => {
             </DialogContent>
             <DialogActions>
                 <Button onClick={onClose} variant='outlined' color='secondary' >Cancel</Button>
-                <Button onClick={submitForm} variant='contained' color='primary' >Add</Button>
+                <Button onClick={submitForm} variant='contained' color='primary' >{edit ? 'Edit' : 'Add'}</Button>
             </DialogActions>
         </Dialog>
     )

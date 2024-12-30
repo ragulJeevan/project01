@@ -1,8 +1,6 @@
 // src/services/axiosService.js
 import axios from 'axios';
 
-
-
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:8000', // Django backend URL
 });
@@ -20,8 +18,7 @@ axiosInstance.interceptors.request.use((config) => {
 axiosInstance.interceptors.response.use(
     (response) => response,
     (error) => {
-        console.log(error);
-        return Promise.reject(error);
+        return Promise.reject(error?.response?.data);
     }
 );
 

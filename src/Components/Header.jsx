@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
 
-    let headerName = 'Home';
+    let headerName = localStorage.getItem('Header') || 'Home'; 
 
     const navigatTo = useNavigate();
 

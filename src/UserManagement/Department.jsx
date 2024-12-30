@@ -2,28 +2,30 @@ import { Button } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import AddDepartment from './AddDepartment';
 import { useDispatch, useSelector } from 'react-redux';
-import {fetchDepartment,createDepartment} from '../ReduxKit/Slices/DepartmentSlice';
-// import { useSnackbar } from '../Components/ShowMessage';
+import { fetchDepartment, createDepartment, editDepartment,deleteDepartment } from '../ReduxKit/Slices/UserManagement/DepartmentSlice';
+import Loader from '../Components/Loader';
+
 
 const Department = () => {
 
-  // const showMessage = useSnackbar();
-
-  const [open, setOpen] = useState(false);
-  // const [departments, setDepartments] = useState([]);
-
   const dispatch = useDispatch();
-  const{departments} = useSelector((state)=> state?.departmentList);
+  const { departments,loading } = useSelector((state) => state?.departmentList);
+  const [open, setOpen] = useState(false);
+  const [edit, setEdit] = useState(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(fetchDepartment());
-  },[dispatch]);
+  }, [dispatch]);
 
-  // Open and close dialog handlers
-  function handleOpen() {
-    setOpen(true)
-    console.log(open);
-    
+
+  function handleAdd() {
+    setEdit(null)
+    setOpen(true);
+  }
+
+  function handleEdit(department) {
+    setEdit(department);
+    setOpen(true);
   }
 
   function handleClose() {
@@ -31,16 +33,32 @@ const Department = () => {
   }
 
   // Add new department
-  const handleAddDepartment = (name) => {
-    dispatch(createDepartment({department_n:name}))
+  function handleAddDepartment(department){
+    if(edit){
+      let data ={
+        id:edit?.id,
+        department_name:department
+      }
+      dispatch(editDepartment(data))
+    }
+    else{
+      dispatch(createDepartment({department_name:department}))
+    }
+    setOpen(false)
   };
 
-
+  function deleteDep(department){
+    if(window.confirm('Are sure want to delete?'))
+      dispatch(deleteDepartment(department?.id))
+  }
 
   return (
     <div>
+      
+      {loading ? <Loader/> : ''}
+      
       <div style={{ display: 'flex', justifyContent: 'end' }} >
-      <Button variant="contained" onClick={handleOpen}> Add Department</Button>
+        <Button variant="contained" onClick={handleAdd}> Add Department</Button>
       </div>
       <div className='p-3' >
         <table className='table table-bordered table-striped table-hover'>
@@ -52,16 +70,16 @@ const Department = () => {
             </tr>
           </thead>
           <tbody>
-            {departments?.data?.map((dep,index)=>{
-              return(
+            {departments?.data?.map((dep, index) => {
+              return (
                 <tr key={dep?.id}  >
-                <td>{index+1}</td>
-                <td>{dep?.department_name}</td>
-                <td>
-                  <Button variant='outlined'>Edit</Button>
-                  <Button variant='outlined' color='error'>Delete</Button>
-                </td>
-              </tr>
+                  <td>{index + 1}</td>
+                  <td>{dep?.department_name}</td>
+                  <td>
+                    <Button variant='outlined' onClick={() => handleEdit(dep)} >Edit</Button>
+                    <Button variant='outlined' color='error' onClick={() => deleteDep(dep)}>Delete</Button>
+                  </td>
+                </tr>
               )
             })}
           </tbody>
@@ -72,6 +90,7 @@ const Department = () => {
         open={open}
         onClose={handleClose}
         onAdd={handleAddDepartment}
+        edit={edit}
       />
     </div>
   )

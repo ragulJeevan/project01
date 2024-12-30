@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from '../Guard/ProtectedRoute';
 import Login from './Login';
 import Home from './Home';
 import UsermanagementRoute from '../UserManagement/UsermanagementRoute';
+import Loader from './Loader';
+import FoundationRoutes from '../Foundation/FoundationRoutes';
 
 const RoutesComponent = () => {
   const isLoggedIn = localStorage?.getItem('loggedIn') ? true : false;
@@ -26,10 +28,20 @@ const RoutesComponent = () => {
         path="/user_management/*"
         element={
           <ProtectedRoute isLoggedIn={isLoggedIn}>
-            <UsermanagementRoute />
+            <Suspense fallback={<Loader/>}>
+              <UsermanagementRoute />
+            </Suspense>
           </ProtectedRoute>
         }
       />
+
+      <Route path='/foundation/*' element={
+        <ProtectedRoute isLoggedIn={isLoggedIn}>
+          <Suspense fallback={<Loader/>}>
+            <FoundationRoutes/>
+          </Suspense>
+        </ProtectedRoute>
+      }/>
 
       {/* Redirect based on Authentication */}
       <Route

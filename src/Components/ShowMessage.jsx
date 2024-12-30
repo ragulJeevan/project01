@@ -11,8 +11,6 @@ export const useSnackbar = () => {
 
 export const SnackbarProvider = ({ children }) => {
 
-    
-
     const [snackbar, setSnackbar] = useState({
         open: false,
         message: '',

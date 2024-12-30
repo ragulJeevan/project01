@@ -25,7 +25,9 @@ const Login = () => {
         password,
       });
       dispatchLogin(setLoggedIn(true));
-      localStorage.setItem('loggedIn', 'token')
+      localStorage.setItem('loggedIn', 'token');
+      let user = JSON.stringify(response?.data?.data);
+      localStorage.setItem('user', user);
       navigateTo('/home');
       showMessage(response?.data?.message, 'success');
     } catch (err) {
