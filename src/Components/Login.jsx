@@ -17,15 +17,27 @@ const Login = () => {
   const dispatchLogin = useDispatch();
   const navigateTo = useNavigate();
 
+  const routes = [
+    { id: 1, menu: 'Home', url: '/home' },
+    { id: 2, menu: 'Department', url: '/user_management/department' },
+    { id: 3, menu: 'Designation', url: '/user_management/designation' },
+    { id: 4, menu: 'User', url: '/user_management/user' },
+    { id: 5, menu: 'Foundation', url: '/foundation/layout' },
+    { id: 6, menu: 'Project Management', url: '/project_management/layout'},
+    { id: 7, menu: 'Task', url: '/project_management/tasklist'},
+    { id: 7, menu: 'Create Task', url: '/project_management/create_task'},
+  ]
+
   async function loginFn(e) {
     e.preventDefault();
     try {
       const response = await apisService.post('/api_user_management/user/login/', {
-        email:userName,
+        email: userName,
         password,
       });
       dispatchLogin(setLoggedIn(true));
       localStorage.setItem('loggedIn', 'token');
+      localStorage.setItem('routes', JSON.stringify(routes));
       let user = JSON.stringify(response?.data?.data);
       localStorage.setItem('user', user);
       navigateTo('/home');

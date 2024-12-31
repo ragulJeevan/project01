@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Tabs, Tab, Box, Typography } from "@mui/material";
+import { Tabs, Tab, Box } from "@mui/material";
 import Status from "./Status";
 import Stage from "./Stage";
 import Complexity from "./Complexity";
@@ -18,7 +18,7 @@ function TabPanel({ children, value, index }) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+         {children}
         </Box>
       )}
     </div>
@@ -36,7 +36,7 @@ const FoundationLayout = () => {
   return (
     <Box sx={{ width: "100%" }}>
       {/* Material-UI Tabs */}
-      <Box sx={{ borderBottom: 1, borderColor: "divider",display:'flex',justifyContent:'end' }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider",display:'flex',justifyContent:'end',background:'linear-gradient(360deg, #8da7ad, #679fcf26, #8c98af 150%);' }}>
         <Tabs 
         value={activeTab} 
         onChange={handleChange} 

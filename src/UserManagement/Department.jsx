@@ -76,8 +76,8 @@ const Department = () => {
                   <td>{index + 1}</td>
                   <td>{dep?.department_name}</td>
                   <td>
-                    <Button variant='outlined' onClick={() => handleEdit(dep)} >Edit</Button>
-                    <Button variant='outlined' color='error' onClick={() => deleteDep(dep)}>Delete</Button>
+                    <Button variant='outlined' onClick={() => handleEdit(dep)} sx={{ margin: 1 }} >Edit</Button>
+                    <Button variant='outlined' color='error' onClick={() => deleteDep(dep)} sx={{ margin: 1 }} >Delete</Button>
                   </td>
                 </tr>
               )

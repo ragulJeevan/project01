@@ -12,16 +12,12 @@ const DrawerComponent = () => {
     function navigate(menu){
         navigateTo(menu?.url);
         localStorage.setItem('Header',menu?.menu)
-        setisDrawerOPen(false)
+        setisDrawerOPen(false);
     }
 
     useEffect(()=>{
-        setMenuItem([
-            {id:1,menu:'Department',url:'user_management/department'},
-            {id:2,menu:'Designation',url:'user_management/designation'},
-            {id:3,menu:'User',url:'user_management/user'},
-            {id:4,menu:'Foundation',url:'foundation/layout'}
-        ])
+        const route = JSON.parse(localStorage.getItem('routes')); 
+        setMenuItem(route);
     },[])
 
   return (

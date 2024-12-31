@@ -78,8 +78,8 @@ const User = () => {
                     <td>{x?.department_name}</td>
                     <td>{x?.designation_name}</td>
                     <td>
-                      <Button onClick={()=> handelEdit(x)} variant='outlined' color='primary'>Edit</Button>
-                      <Button onClick={()=>deleteUSer(x)} variant='outlined' color='error'>Delete</Button>
+                      <Button onClick={()=> handelEdit(x)} variant='outlined' color='primary' sx={{ margin: 1 }} >Edit</Button>
+                      <Button onClick={()=>deleteUSer(x)} variant='outlined' color='error' sx={{ margin: 1 }} >Delete</Button>
                     </td>
                   </tr>
                 )

@@ -56,7 +56,7 @@ export const StatusSLice = createSlice({
         })
         .addCase(createStatus.fulfilled,(state,action)=>{
             state.loading = false;
-            state.status = action?.payload?.data;
+            state.status.push(action?.payload?.data);
         })
         .addCase(createStatus.rejected,(state,action)=>{
             state.loading = false;
@@ -68,7 +68,10 @@ export const StatusSLice = createSlice({
         })
         .addCase(editStatus.fulfilled,(state,action)=>{
             state.loading = false;
-            state.status = action?.payload?.data;
+            const index = state?.status?.findIndex((_s)=> _s?.id === action?.payload?.data?.id);
+            if(index !== -1){
+                state.status[index]=action?.payload?.data;
+            }
         })
         .addCase(editStatus.rejected,(state,action)=>{
             state.loading = false;
@@ -80,7 +83,7 @@ export const StatusSLice = createSlice({
         })
         .addCase(deleteStatus.fulfilled,(state,action)=>{
             state.loading = false;
-            state.status = action?.payload?.data;
+            state.status = state?.status?.filter((_s)=>_s?.id !== action?.payload?.data);
         })
         .addCase(deleteStatus.rejected,(state,action)=>{
             state.loading = false;

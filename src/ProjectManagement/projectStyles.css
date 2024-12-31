@@ -1,0 +1,40 @@
+.create-task{
+height: calc(81vh - 1rem);
+overflow-y: auto;
+border: 1px solid #e6e6e6;
+border-radius: 8px;
+background-color: #fff;
+box-shadow: 0 2px 15px 0px #e0e0e0, 0 2px 1px -1px #fff7f7;
+}
+
+.btn-display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    column-gap: 0.5rem;
+}
+
+.dir-row{
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+    width:100%
+}
+.dir-col-q{
+    width: 24%;
+    padding: .2rem;
+    margin: .2rem;
+}
+.select{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.label{
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}

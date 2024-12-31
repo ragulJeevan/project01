@@ -9,15 +9,15 @@ export const StatusApi = {
         return response?.data;
     },
     post: async (payLoad) => {
-        const response = await axiosInstance.get(statusEndPoint, payLoad);
+        const response = await axiosInstance.post(statusEndPoint, payLoad);
         return response?.data;
     },
     put: async (payLoad) => {
-        const response = await axiosInstance.get(`${statusEndPoint}${payLoad?.id}/`, payLoad);
+        const response = await axiosInstance.put(`${statusEndPoint}${payLoad?.id}/`, payLoad);
         return response?.data;
     },
     delete: async (payLoad) => {
-        const response = await axiosInstance.get(`${statusEndPoint}${payLoad?.id}/`);
+        const response = await axiosInstance.delete(`${statusEndPoint}${payLoad?.id}/`);
         return response?.data;
     },
 }
@@ -29,15 +29,15 @@ export const TypeApi = {
         return response?.data;
     },
     post: async (payLoad) => {
-        const response = await axiosInstance.get(typeEndPoint, payLoad);
+        const response = await axiosInstance.post(typeEndPoint, payLoad);
         return response?.data;
     },
     put: async (payLoad) => {
-        const response = await axiosInstance.get(`${typeEndPoint}${payLoad?.id}/`, payLoad);
+        const response = await axiosInstance.put(`${typeEndPoint}${payLoad?.id}/`, payLoad);
         return response?.data;
     },
     delete: async (payLoad) => {
-        const response = await axiosInstance.get(`${typeEndPoint}${payLoad?.id}/`);
+        const response = await axiosInstance.delete(`${typeEndPoint}${payLoad?.id}/`);
         return response?.data;
     },
 }
@@ -49,15 +49,15 @@ export const StageApi = {
         return response?.data;
     },
     post: async (payLoad) => {
-        const response = await axiosInstance.get(stageEndPoint, payLoad);
+        const response = await axiosInstance.post(stageEndPoint, payLoad);
         return response?.data;
     },
     put: async (payLoad) => {
-        const response = await axiosInstance.get(`${stageEndPoint}${payLoad?.id}/`, payLoad);
+        const response = await axiosInstance.put(`${stageEndPoint}${payLoad?.id}/`, payLoad);
         return response?.data;
     },
     delete: async (payLoad) => {
-        const response = await axiosInstance.get(`${stageEndPoint}${payLoad?.id}/`);
+        const response = await axiosInstance.delete(`${stageEndPoint}${payLoad?.id}/`);
         return response?.data;
     },
 }
@@ -69,15 +69,15 @@ export const SDLCApi = {
         return response?.data;
     },
     post: async (payLoad) => {
-        const response = await axiosInstance.get(sdlcEndPoint, payLoad);
+        const response = await axiosInstance.post(sdlcEndPoint, payLoad);
         return response?.data;
     },
     put: async (payLoad) => {
-        const response = await axiosInstance.get(`${sdlcEndPoint}${payLoad?.id}/`, payLoad);
+        const response = await axiosInstance.put(`${sdlcEndPoint}${payLoad?.id}/`, payLoad);
         return response?.data;
     },
     delete: async (payLoad) => {
-        const response = await axiosInstance.get(`${sdlcEndPoint}${payLoad?.id}/`);
+        const response = await axiosInstance.delete(`${sdlcEndPoint}${payLoad?.id}/`);
         return response?.data;
     },
 }
@@ -89,15 +89,15 @@ export const ComplexityApi = {
         return response?.data;
     },
     post: async (payLoad) => {
-        const response = await axiosInstance.get(complexityEndPoint, payLoad);
+        const response = await axiosInstance.post(complexityEndPoint, payLoad);
         return response?.data;
     },
     put: async (payLoad) => {
-        const response = await axiosInstance.get(`${complexityEndPoint}${payLoad?.id}/`, payLoad);
+        const response = await axiosInstance.put(`${complexityEndPoint}${payLoad?.id}/`, payLoad);
         return response?.data;
     },
     delete: async (payLoad) => {
-        const response = await axiosInstance.get(`${complexityEndPoint}${payLoad?.id}/`);
+        const response = await axiosInstance.delete(`${complexityEndPoint}${payLoad?.id}/`);
         return response?.data;
     },
 }
@@ -109,15 +109,15 @@ export const PriorityApi = {
         return response?.data;
     },
     post: async (payLoad) => {
-        const response = await axiosInstance.get(priorityEndPoint, payLoad);
+        const response = await axiosInstance.post(priorityEndPoint, payLoad);
         return response?.data;
     },
     put: async (payLoad) => {
-        const response = await axiosInstance.get(`${priorityEndPoint}${payLoad?.id}/`, payLoad);
+        const response = await axiosInstance.put(`${priorityEndPoint}${payLoad?.id}/`, payLoad);
         return response?.data;
     },
     delete: async (payLoad) => {
-        const response = await axiosInstance.get(`${priorityEndPoint}${payLoad?.id}/`);
+        const response = await axiosInstance.delete(`${priorityEndPoint}${payLoad?.id}/`);
         return response?.data;
     },
 }

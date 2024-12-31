@@ -6,6 +6,7 @@ import Home from './Home';
 import UsermanagementRoute from '../UserManagement/UsermanagementRoute';
 import Loader from './Loader';
 import FoundationRoutes from '../Foundation/FoundationRoutes';
+import ProjectRoute from '../ProjectManagement/ProjectRoute';
 
 const RoutesComponent = () => {
   const isLoggedIn = localStorage?.getItem('loggedIn') ? true : false;
@@ -42,6 +43,12 @@ const RoutesComponent = () => {
           </Suspense>
         </ProtectedRoute>
       }/>
+
+      <Route path='/project_management/*' element={
+        <Suspense fallback={<Loader/>}>
+          <ProjectRoute/>
+        </Suspense>
+      } />
 
       {/* Redirect based on Authentication */}
       <Route

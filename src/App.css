@@ -2,10 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(95vh - 3rem);
+    height: calc(94vh - 3rem);
 }
 .Layout{
-    height: calc(95vh - 2rem);
+    height: calc(94vh - 2rem);
     overflow: auto;
     padding: 0.5rem;
 }

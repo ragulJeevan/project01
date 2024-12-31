@@ -71,8 +71,8 @@ const Designation = () => {
                   <td>{index+1}</td>
                   <td>{des?.designation_name}</td>
                   <td>
-                    <Button onClick={()=>handelEdit(des)} variant='outlined' color='primary'>Edit</Button>
-                    <Button onClick={()=>deleteDesig(des)} variant='outlined' color='error'>Delete</Button>
+                    <Button onClick={()=>handelEdit(des)} variant='outlined' color='primary' sx={{ margin: 1 }} >Edit</Button>
+                    <Button onClick={()=>deleteDesig(des)} variant='outlined' color='error' sx={{ margin: 1 }} >Delete</Button>
                   </td>
                 </tr>
               )
